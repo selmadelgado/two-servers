@@ -1,8 +1,6 @@
 var http = require("http");
-
-var PORT = 7000;
-
-function handleRequest(req, res){
+ var PORT = 7000;
+ function handleRequest(req, res){
     var path = req.url;
     switch(path){
         case "/" :
@@ -16,9 +14,7 @@ function handleRequest(req, res){
     }
     res.end(path);
 }
-
-var server = http.createServer(handleRequest);
-
-server.listen(PORT, function(){
+ var server = http.createServer(handleRequest);
+ server.listen(PORT, function(){
     console.log("Server listening on: http://localhost: " + PORT);
-});
+}); 
