@@ -2,6 +2,13 @@ var http = require("http");
 
 var PORT = 7000;
 
+var server = http.createServer(handleRequest);
+
+server.listen(PORT, function(){
+    console.log("Server listening on: http://localhost: " + PORT);
+});
+
+
 function handleRequest(req, res){
     var path = req.url;
     switch(path){
@@ -28,7 +35,7 @@ function displayRoot(url, req, res){
     </body>
     </html>
     `
-    res.writeHead(200, {"Content-Type": "text/html"})
+    res.writeHead(200, {"Content-Type": "text/html"});
     res.end(myHTML);
 }
 
@@ -42,7 +49,7 @@ function displayPortfolio(url, req, res){
     </body>
     </html>
     `
-    res.writeHead(200, {"Content-Type": "text/html"})
+    res.writeHead(200, {"Content-Type": "text/html"});
     res.end(myHTML);
 }
 
@@ -56,13 +63,8 @@ function display404(url, req, res){
     </body>
     </html>
     `
-    res.writeHead(404, {"Content-Type": "text/html"})
+    res.writeHead(404, {"Content-Type": "text/html"});
     res.end(myHTML);
 }
 
 
-var server = http.createServer(handleRequest);
-
-server.listen(PORT, function(){
-    console.log("Server listening on: http://localhost: " + PORT);
-});
