@@ -33,11 +33,31 @@ function displayRoot(url, req, res){
 }
 
 function displayPortfolio(url, req, res){
-    res.end("Greetings fellow human!");
+    var myHTML =
+    `
+    <html>
+    <body>
+        <h1>My Portfolio Page</h1>
+        <a href="/">Home</a>
+    </body>
+    </html>
+    `
+    res.writeHead(200, {"Content-Type": "text/html"})
+    res.end(myHTML);
 }
 
 function display404(url, req, res){
-    res.end("Greetings fellow human!");
+    var myHTML =
+    `
+    <html>
+    <body>
+        <h1>PAY NO ATTENTION TO THE MAN BEHIND THE CURTAIN (Page: ${url} not Found)</h1>
+        <a href="/">Home</a>
+    </body>
+    </html>
+    `
+    res.writeHead(404, {"Content-Type": "text/html"})
+    res.end(myHTML);
 }
 
 
